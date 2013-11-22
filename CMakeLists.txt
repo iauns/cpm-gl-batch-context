@@ -43,13 +43,6 @@ CPM_InitModule(${CPM_MODULE_NAME})
 # Find OpenGL
 find_package(OpenGL REQUIRED)
 
-# Option for using an OS mesa context.
-option(USE_OS_MESA "Use an OS mesa context." OFF)
-if (USE_OS_MESA)
-  add_definitions(-DUSE_OS_MESA)
-  set(MESA_LIBRARIES "OSMesa32")
-endif()
-
 # Compiler options
 if (UNIX)
   if (APPLE)
@@ -68,7 +61,10 @@ if (UNIX)
     add_definitions(-DGL_CONTEXT_USING_OSX)
   else ()
     # Linux specific sources
+    option(USE_OS_MESA "Use an OS mesa context." OFF)
     if (USE_OS_MESA)
+      add_definitions(-DUSE_OS_MESA)
+      set(MESA_LIBRARIES "OSMesa32")
       set (SpecificSources
         gl-batch-context/src/OSMesaContext.cpp
         gl-batch-context/src/OSMesaContext.hpp
