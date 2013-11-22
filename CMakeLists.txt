@@ -53,10 +53,15 @@ endif()
 # Compiler options
 if (UNIX)
   if (APPLE)
+
+    # Find necessary apple libraries (cocoa).
+    FIND_LIBRARY(COCOA_LIBRARY Cocoa)
+    set(OS_SPECIFIC_LIBS ${COCOA_LIBRARY})
+
     # Apple specific sources
     set (SpecificSources
       gl-batch-context/src/CGLContext.cpp
-      gl-batch-context/src/CGLContext.h
+      gl-batch-context/src/CGLContext.hpp
       gl-batch-context/src/NSContext.mm
       gl-batch-context/src/NSContext.h
       )
@@ -66,12 +71,12 @@ if (UNIX)
     if (USE_OS_MESA)
       set (SpecificSources
         gl-batch-context/src/OSMesaContext.cpp
-        gl-batch-context/src/OSMesaContext.h
+        gl-batch-context/src/OSMesaContext.hpp
         )
     else()
       set (SpecificSources
         gl-batch-context/src/GLXContext.cpp
-        gl-batch-context/src/GLXContext.h
+        gl-batch-context/src/GLXContext.hpp
         )
     endif()
     add_definitions(-DGL_CONTEXT_USING_LINUX)
@@ -92,7 +97,7 @@ else()
     # Windows specific sources
     set (SpecificSources
       gl-batch-context/src/WGLContext.cpp
-      gl-batch-context/src/WGLContext.h
+      gl-batch-context/src/WGLContext.hpp
       )
 
     add_definitions(-DGL_CONTEXT_USING_WIN)
@@ -116,6 +121,6 @@ file (GLOB Sources
 #-----------------------------------------------------------------------
 
 # Build the library.
-add_library(${CPM_LIB_TARGET_NAME} ${Sources})
-target_link_libraries(${CPM_LIB_TARGET_NAME} ${CPM_LIBRARIES})
+add_library(${CPM_LIB_TARGET_NAME} ${Sources} ${SpecificSources})
+target_link_libraries(${CPM_LIB_TARGET_NAME} ${OS_SPECIFIC_LIBS} ${CPM_LIBRARIES})
 

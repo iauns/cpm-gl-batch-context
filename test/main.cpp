@@ -2,9 +2,9 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "gl-batch-context/Context.h"
+#include "gl-batch-context/Context.hpp"
 
-int main(int argc, char** argv)
+int main(int /*argc*/, char** /*argv*/)
 {
   CPM_GL_CONTEXT_NS::Context* glContext = 
       CPM_GL_CONTEXT_NS::Context::createBatchContext(

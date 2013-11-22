@@ -31,6 +31,7 @@
 
 #include "NSContext.h"
 
+#include <stdexcept>
 #include <iostream>
 #import <OpenGL/OpenGL.h>
 #import <AppKit/AppKit.h>
