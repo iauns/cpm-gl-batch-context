@@ -36,7 +36,7 @@ namespace CPM_GL_BATCH_CONTEXT_NS {
 
 struct MesaContext
 {
-  MesaContext() :frameBuffer(nullptr) {}
+  MesaContext() :frameBuffer(NULL) {}
 
   OSMesaContext ctx;  
   void*         frameBuffer;
@@ -53,7 +53,7 @@ OSMesaBatchContext::OSMesaBatchContext(uint32_t width, uint32_t height, uint8_t,
                                           0, NULL );
 
   mContext->frameBuffer = malloc( width * height * 4 * sizeof(GLubyte) );
-  if (mContext->frameBuffer == nullptr)
+  if (mContext->frameBuffer == NULL)
   {
     throw NoAvailableContext();
   }
