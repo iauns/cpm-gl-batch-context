@@ -5,8 +5,9 @@
 #ifndef IAUNS_GL_BATCH_CONTEXT_BATCH_HPP
 #define IAUNS_GL_BATCH_CONTEXT_BATCH_HPP
 
-namespace CPM_GL_BATCH_CONTEXT_NS
-{
+#include <stdint.h>
+
+namespace CPM_GL_BATCH_CONTEXT_NS {
 
 /// Base context class.
 class Context
