@@ -48,9 +48,9 @@ public:
             bool doubleBuffer, bool visible);
   virtual ~NSContext();
 
-  bool isValid() const override;
-  void makeCurrent() override;
-  void swapBuffers() override;
+  bool isValid() const;
+  void makeCurrent();
+  void swapBuffers();
 
 private:
 

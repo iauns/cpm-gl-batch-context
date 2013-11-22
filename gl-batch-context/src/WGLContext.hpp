@@ -52,9 +52,9 @@ class WGLContext : public Context
                   bool double_buffer, bool visible);
     virtual ~WGLContext();
 
-    bool isValid() const override;
-    void makeCurrent() override;
-    void swapBuffers() override;
+    bool isValid() const;
+    void makeCurrent();
+    void swapBuffers();
 
   private:
     std::shared_ptr<struct winfo> wi;

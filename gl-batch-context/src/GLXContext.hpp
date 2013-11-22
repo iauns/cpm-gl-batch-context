@@ -45,9 +45,9 @@ public:
              bool visible);
   virtual ~GLXBatchContext();
 
-  bool isValid() const override;
-  void makeCurrent() override;
-  void swapBuffers() override;
+  bool isValid() const;
+  void makeCurrent();
+  void swapBuffers();
 
 private:
   std::shared_ptr<struct xinfo> xi;
