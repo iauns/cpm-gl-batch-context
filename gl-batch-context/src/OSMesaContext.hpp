@@ -32,6 +32,8 @@
 #include <memory>
 #include "BatchContext.h"
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 struct MesaContext;
 
 class OSMesaBatchContext: public BatchContext
@@ -49,5 +51,7 @@ public:
 private:
   std::shared_ptr<MesaContext> mContext;
 };
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 
 #endif /* SPIRE_GLX_CONTEXT_H */

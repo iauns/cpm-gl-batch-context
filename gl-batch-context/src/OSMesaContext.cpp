@@ -32,6 +32,8 @@
 
 #include "OSMesaContext.hpp"
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 struct MesaContext
 {
   MesaContext() :frameBuffer(nullptr) {}
@@ -84,4 +86,6 @@ void OSMesaBatchContext::swapBuffers()
   // We just need to make sure the gl commands are finished.
   glFinish();
 }
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 

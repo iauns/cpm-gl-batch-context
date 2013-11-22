@@ -32,6 +32,8 @@
 
 #include "GLXContext.hpp"
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 struct xinfo {
   Display *display;
   XVisualInfo *visual;
@@ -175,4 +177,6 @@ find_visual(Display *d, bool double_buffered)
     ret_v = glXChooseVisual(d, DefaultScreen(d), attr);
     return ret_v;
 }
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 

@@ -32,6 +32,8 @@
 #include <memory>
 #include "BatchContext.h"
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 struct xinfo;
 
 class GLXBatchContext: public BatchContext
@@ -50,5 +52,7 @@ public:
 private:
   std::shared_ptr<struct xinfo> xi;
 };
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 
 #endif /* SPIRE_GLX_CONTEXT_H */

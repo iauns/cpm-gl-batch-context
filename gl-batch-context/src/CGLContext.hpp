@@ -32,6 +32,8 @@
 #include <memory>
 #include "BatchContext.h"
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 struct CGLContextInfo;
 
 class CGLContext : public BatchContext
@@ -49,5 +51,7 @@ class CGLContext : public BatchContext
   private:
     std::shared_ptr<struct CGLContextInfo> ci;
 };
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 
 #endif /* SPIRE_CGL_CONTEXT_H */

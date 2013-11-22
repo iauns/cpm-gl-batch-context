@@ -35,6 +35,8 @@
 #include <memory>
 #include "BatchContext.h"
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 struct NSContextInfo;
 
 /// Uses Objective-C to obtain a context.
@@ -54,5 +56,7 @@ private:
 
   std::shared_ptr<NSContextInfo>  mCI;
 };
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 
 #endif 

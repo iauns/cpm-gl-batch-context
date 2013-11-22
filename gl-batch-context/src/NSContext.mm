@@ -35,6 +35,8 @@
 #import <OpenGL/OpenGL.h>
 #import <AppKit/AppKit.h>
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 // Simple error reporting macros
 #define REPORTGLERROR(task) { GLenum tGLErr = glGetError(); if (tGLErr != GL_NO_ERROR) { std::cout << "OpenGL error " << tGLErr << " while " << task << "\n"; } }
 #define REPORT_ERROR_AND_EXIT(desc) { std::cout << desc << "\n"; return; }
@@ -109,4 +111,6 @@ void NSContext::swapBuffers()
   // Buffers are autoswapped?
   [mCI->openGLContext flushBuffer];
 }
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 

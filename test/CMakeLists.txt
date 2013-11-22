@@ -26,7 +26,7 @@ if (NOT EXISTS ${CPM_DIR}/CPM.cmake)
 endif()
 include(${CPM_DIR}/CPM.cmake)
 
-CPM_AddModule("gl_batch_context" SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
+CPM_AddModule("gl_context" SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
 
 CPM_Finish()
 

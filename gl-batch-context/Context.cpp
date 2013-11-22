@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Context.h"
+#include "Context.hpp"
 
 #if defined(USE_OS_MESA)
   #include "src/OSMesaContext.hpp"
@@ -16,6 +16,9 @@
     #include "src/NSContext.hpp"
   #endif
 #endif
+
+namespace CPM_GL_BATCH_CONTEXT_NS
+{
 
 //------------------------------------------------------------------------------
 Context::Context()
@@ -61,3 +64,4 @@ Context* Context::createBatchContetx(uint32_t width, uint32_t height,
   return bctx;
 }
 
+}

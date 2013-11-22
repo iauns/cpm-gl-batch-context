@@ -41,6 +41,8 @@
 #include "WGLContext.hpp"
 #include <sstream>
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 struct winfo
 {
   HDC deviceContext;
@@ -238,4 +240,6 @@ bool WGLContext::swapBuffers()
   }
   return true;
 }
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 

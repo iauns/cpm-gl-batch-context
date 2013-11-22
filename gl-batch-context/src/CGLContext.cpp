@@ -35,6 +35,8 @@
 #include <OpenGL/gl.h>
 #include "CGLContext.hpp"
 
+namespace CPM_GL_BATCH_CONTEXT_NS {
+
 struct CGLContextInfo
 {
   CGLContextObj ctx;
@@ -100,4 +102,6 @@ void CGLContext::swapBuffers()
   if (CGLFlushDrawable(ci->ctx) != kCGLNoError)
     throw std::runtime_error("Unable to flush drawable objects.");
 }
+
+} // namespace CPM_GL_BATCH_CONTEXT_NS
 
