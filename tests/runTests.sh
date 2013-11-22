@@ -6,6 +6,6 @@ if [ ! -d ./bin ]; then
 fi
 
 pushd ./bin > /dev/null
-  cmake ..
+  cmake -DUSE_OS_MESA=ON ..
   make
 popd
