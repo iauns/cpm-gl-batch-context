@@ -211,6 +211,7 @@ WGLContext::~WGLContext()
   wglDeleteContext(wi->renderingContext);
   ReleaseDC(wi->window, wi->deviceContext);
   DestroyWindow(wi->window);
+  delete wi;
 }
 
 bool WGLContext::isValid() const

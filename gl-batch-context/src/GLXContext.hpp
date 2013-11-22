@@ -50,7 +50,7 @@ public:
   void swapBuffers();
 
 private:
-  std::shared_ptr<struct xinfo> xi;
+  struct xinfo* xi;
 };
 
 } // namespace CPM_GL_BATCH_CONTEXT_NS

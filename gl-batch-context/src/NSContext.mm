@@ -89,6 +89,7 @@ NSContext::~NSContext()
 {
   [mCI->openGLContext clearDrawable];
   [mCI->openGLContext release];
+  delete mCI;
 }
 
 //------------------------------------------------------------------------------

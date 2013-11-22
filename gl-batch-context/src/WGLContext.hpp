@@ -57,7 +57,7 @@ class WGLContext : public Context
     void swapBuffers();
 
   private:
-    std::shared_ptr<struct winfo> wi;
+    struct winfo* wi;
 };
 
 } // namespace CPM_GL_BATCH_CONTEXT_NS

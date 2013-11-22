@@ -49,7 +49,7 @@ class CGLContext : public Context
     void swapBuffers();
 
   private:
-    std::shared_ptr<struct CGLContextInfo> ci;
+    struct CGLContextInfo* ci;
 };
 
 } // namespace CPM_GL_BATCH_CONTEXT_NS

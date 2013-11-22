@@ -81,6 +81,7 @@ CGLContext::CGLContext(uint32_t, uint32_t, uint8_t color_bits,
 CGLContext::~CGLContext()
 {
   CGLReleaseContext(ci->ctx);
+  delete ci;
 }
 
 //------------------------------------------------------------------------------

@@ -54,7 +54,7 @@ public:
 
 private:
 
-  std::shared_ptr<NSContextInfo>  mCI;
+  NSContextInfo*  mCI;
 };
 
 } // namespace CPM_GL_BATCH_CONTEXT_NS

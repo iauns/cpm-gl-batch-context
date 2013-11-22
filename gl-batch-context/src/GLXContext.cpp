@@ -72,7 +72,7 @@ GLXBatchContext::~GLXBatchContext()
   XDestroyWindow(xi->display, xi->win);
   XFree(xi->visual);
   XCloseDisplay(xi->display);
-  xi.reset();
+  delete xi;
 }
 
 bool GLXBatchContext::isValid() const
