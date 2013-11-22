@@ -33,7 +33,7 @@
 #include <OpenGL/CGLTypes.h>
 #include <OpenGL/OpenGL.h>
 #include <OpenGL/gl.h>
-#include "CGLContext.h"
+#include "CGLContext.hpp"
 
 struct CGLContextInfo
 {
@@ -41,8 +41,8 @@ struct CGLContextInfo
 };
 
 CGLContext::CGLContext(uint32_t, uint32_t, uint8_t color_bits,
-                             uint8_t depth_bits, uint8_t stencil_bits,
-                             bool double_buffer, bool) :
+                       uint8_t depth_bits, uint8_t stencil_bits,
+                       bool double_buffer, bool) :
   ci(new struct CGLContextInfo())
 {
   CGLPixelFormatAttribute attribs[] = {

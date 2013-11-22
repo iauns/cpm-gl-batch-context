@@ -30,7 +30,7 @@
 #include <cassert>
 #include <GL/glxew.h>
 
-#include "GLXContext.h"
+#include "GLXContext.hpp"
 
 struct xinfo {
   Display *display;

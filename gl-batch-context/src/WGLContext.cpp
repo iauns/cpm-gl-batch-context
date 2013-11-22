@@ -38,7 +38,7 @@
 # include <GL/glew.h>
 # include <GL/wglew.h>
 
-#include "WGLContext.h"
+#include "WGLContext.hpp"
 #include <sstream>
 
 struct winfo

@@ -30,7 +30,7 @@
 #include <cassert>
 #include "GL/osmesa.h"
 
-#include "OSMesaContext.h"
+#include "OSMesaContext.hpp"
 
 struct MesaContext
 {
