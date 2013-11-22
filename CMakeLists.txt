@@ -49,7 +49,7 @@ if (UNIX)
 
     # Find necessary apple libraries (cocoa).
     FIND_LIBRARY(COCOA_LIBRARY Cocoa)
-    set(OS_SPECIFIC_LIBS ${COCOA_LIBRARY})
+    set(OS_SPECIFIC_LIBS ${OS_SPECIFIC_LIBS} ${COCOA_LIBRARY})
 
     # Apple specific sources
     set (SpecificSources
@@ -65,6 +65,7 @@ if (UNIX)
     if (USE_OS_MESA)
       add_definitions(-DUSE_OS_MESA)
       set(MESA_LIBRARIES "OSMesa32")
+      set(OS_SPECIFIC_LIBS ${OS_SPECIFIC_LIBS} ${MESA_LIBRARIES})
       set (SpecificSources
         gl-batch-context/src/OSMesaContext.cpp
         gl-batch-context/src/OSMesaContext.hpp
@@ -118,5 +119,7 @@ file (GLOB Sources
 
 # Build the library.
 add_library(${CPM_LIB_TARGET_NAME} ${Sources} ${SpecificSources})
-target_link_libraries(${CPM_LIB_TARGET_NAME} ${OS_SPECIFIC_LIBS} ${CPM_LIBRARIES})
+target_link_libraries(${CPM_LIB_TARGET_NAME} 
+  ${OS_SPECIFIC_LIBS} 
+  ${CPM_LIBRARIES})
 
