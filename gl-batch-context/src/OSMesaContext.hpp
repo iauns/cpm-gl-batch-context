@@ -49,7 +49,7 @@ public:
   void swapBuffers();
 
 private:
-  std::shared_ptr<MesaContext> mContext;
+  MesaContext* mContext;
 };
 
 } // namespace CPM_GL_BATCH_CONTEXT_NS

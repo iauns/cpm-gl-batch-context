@@ -67,6 +67,7 @@ OSMesaBatchContext::~OSMesaBatchContext()
 {
   free(mContext->frameBuffer);
   OSMesaDestroyContext(mContext->ctx);
+  delete mContext;
 }
 
 bool OSMesaBatchContext::isValid() const
