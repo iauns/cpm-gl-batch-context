@@ -26,7 +26,7 @@ Context::Context()
 }
 
 //------------------------------------------------------------------------------
-Context* Context::createBatchContetx(uint32_t width, uint32_t height,
+Context* Context::createBatchContext(uint32_t width, uint32_t height,
                                      uint8_t color_bits, uint8_t depth_bits,
                                      uint8_t stencil_bits, bool double_buffer,
                                      bool visible)
