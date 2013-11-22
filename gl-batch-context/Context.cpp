@@ -7,18 +7,17 @@
 #if defined(USE_OS_MESA)
   #include "src/OSMesaContext.hpp"
 #else
-  #if defined(SPIRE_USING_WIN)
+  #if defined(GL_CONTEXT_USING_WIN)
     #include "src/WGLContext.hpp"
-  #elif defined(SPIRE_USING_LINUX)
+  #elif defined(GL_CONTEXT_USING_LINUX)
     #include "src/GLXContext.hpp"
-  #elif defined(SPIRE_USING_OSX)
+  #elif defined(GL_CONTEXT_USING_OSX)
     #include "src/CGLContext.hpp"
     #include "src/NSContext.hpp"
   #endif
 #endif
 
-namespace CPM_GL_BATCH_CONTEXT_NS
-{
+namespace CPM_GL_BATCH_CONTEXT_NS {
 
 //------------------------------------------------------------------------------
 Context::Context()
@@ -36,13 +35,13 @@ Context* Context::createBatchContext(uint32_t width, uint32_t height,
   bctx = new OSMesaBatchContext(width, height, color_bits, depth_bits, stencil_bits,
                            double_buffer, visible);
 #else
-  #ifdef SPIRE_USING_WIN
+  #ifdef GL_CONTEXT_USING_WIN
   bctx = new WGLContext(width, height, color_bits, depth_bits, stencil_bits,
                        double_buffer, visible);
-  #elif defined(SPIRE_USING_OSX) && defined(USE_CGL)
+  #elif defined(GL_CONTEXT_USING_OSX) && defined(USE_CGL)
   bctx = new CGLContext(width, height, color_bits, depth_bits, stencil_bits,
                        double_buffer, visible);
-  #elif defined(SPIRE_USING_OSX)
+  #elif defined(GL_CONTEXT_USING_OSX)
   bctx = new NSContext(width, height, color_bits, depth_bits, stencil_bits,
                       double_buffer, visible);
   #else
@@ -52,7 +51,7 @@ Context* Context::createBatchContext(uint32_t width, uint32_t height,
 #endif
   bctx->makeCurrent();
 
-#ifdef SPIRE_USING_WIN
+#ifdef GL_CONTEXT_USING_WIN
   GLenum err = glewInit();
   if (GLEW_OK != err)
   {

@@ -33,14 +33,14 @@
 #define BATCHRENDERER_NSCONTEXT_H
 
 #include <memory>
-#include "BatchContext.h"
+#include "../Context.hpp"
 
 namespace CPM_GL_BATCH_CONTEXT_NS {
 
 struct NSContextInfo;
 
 /// Uses Objective-C to obtain a context.
-class NSContext : public BatchContext
+class NSContext : public Context
 {
 public:
   NSContext(uint32_t w, uint32_t h, uint8_t colorBits,

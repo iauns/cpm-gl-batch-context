@@ -60,6 +60,7 @@ if (UNIX)
       gl-batch-context/src/NSContext.mm
       gl-batch-context/src/NSContext.h
       )
+    add_definitions(-DGL_CONTEXT_USING_OSX)
   else ()
     # Linux specific sources
     if (USE_OS_MESA)
@@ -73,6 +74,7 @@ if (UNIX)
         gl-batch-context/src/GLXContext.h
         )
     endif()
+    add_definitions(-DGL_CONTEXT_USING_LINUX)
   endif ()
 else()
   # TODO: Windows won't work until we get a glew module that clones
@@ -92,6 +94,8 @@ else()
       gl-batch-context/src/WGLContext.cpp
       gl-batch-context/src/WGLContext.h
       )
+
+    add_definitions(-DGL_CONTEXT_USING_WIN)
   endif(WIN32)
 endif ()
 

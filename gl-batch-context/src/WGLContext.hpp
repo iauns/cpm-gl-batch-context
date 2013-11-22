@@ -38,13 +38,13 @@
 #define SPIRE_WGL_CONTEXT_H
 
 #include <memory>
-#include "BatchContext.h"
+#include "../Context.hpp"
 
 namespace CPM_GL_BATCH_CONTEXT_NS {
 
 struct winfo;
 
-class WGLContext : public BatchContext
+class WGLContext : public Context
 {
   public:
     WGLContext(uint32_t w, uint32_t h, uint8_t color_bits,

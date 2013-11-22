@@ -15,6 +15,8 @@ public:
   Context();
   virtual ~Context();
 
+  virtual bool isValid() const=0;
+
   /// Creates a batch context not associated with any windows.
   static Context* createBatchContext(
       uint32_t width, uint32_t height, uint8_t color_bits, uint8_t depth_bits,

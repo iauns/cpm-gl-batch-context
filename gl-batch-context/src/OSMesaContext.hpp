@@ -30,13 +30,13 @@
 #define SPIRE_OSMESA_CONTEXT_H
 
 #include <memory>
-#include "BatchContext.h"
+#include "../Context.hpp"
 
 namespace CPM_GL_BATCH_CONTEXT_NS {
 
 struct MesaContext;
 
-class OSMesaBatchContext: public BatchContext
+class OSMesaBatchContext: public Context
 {
 public:
   OSMesaBatchContext(uint32_t w, uint32_t h, uint8_t color_bits,

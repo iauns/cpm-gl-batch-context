@@ -30,13 +30,13 @@
 #define SPIRE_GLX_CONTEXT_H
 
 #include <memory>
-#include "BatchContext.h"
+#include "../Context.hpp"
 
 namespace CPM_GL_BATCH_CONTEXT_NS {
 
 struct xinfo;
 
-class GLXBatchContext: public BatchContext
+class GLXBatchContext: public Context
 {
 public:
   GLXBatchContext(uint32_t w, uint32_t h, uint8_t color_bits,
