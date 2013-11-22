@@ -28,6 +28,7 @@
 
 #include <stdexcept>
 #include <cassert>
+#include <cstdlib>
 #include "GL/osmesa.h"
 
 #include "OSMesaContext.hpp"
