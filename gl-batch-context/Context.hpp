@@ -34,6 +34,16 @@ public:
   virtual void swapBuffers()    = 0;
 };
 
+class NoAvailableContext : public std::exception
+{
+  public:
+    virtual ~NoAvailableContext() throw() {}
+    virtual const char* what() const throw()
+    {
+      return "No context was available to utilize.";
+    }
+};
+
 } // namespace CPM_GL_BATCH_CONTEXT_NS
 
 #endif 
