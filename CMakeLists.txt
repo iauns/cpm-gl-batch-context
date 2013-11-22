@@ -75,6 +75,9 @@ if (UNIX)
     endif()
   endif ()
 else()
+  # TODO: Windows won't work until we get a glew module that clones
+  #       glew from https://github.com/nigels-com/glew and adds the appropriate
+  #       sources.
   if (WIN32)
     # Since we are building a static library, we need to define GLEW_STATIC
     # <url:http://glew.sourceforge.net/install.html#^define the GLEW_STATIC>
