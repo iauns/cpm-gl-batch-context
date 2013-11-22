@@ -13,7 +13,7 @@
     #include "src/GLXContext.hpp"
   #elif defined(GL_CONTEXT_USING_OSX)
     #include "src/CGLContext.hpp"
-    #include "src/NSContext.hpp"
+    #include "src/NSContext.h"
   #endif
 #endif
 
