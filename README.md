@@ -10,19 +10,17 @@ platforms that do not have a video card installed such as VMs.
 Use
 ---
 
-Include:
-
-```
+```c++
 #include "gl-batch-context/Context.h"
 ```
 
-Then issue a call to Context::createBatchContext to create a new offscreen
+Issue a call to Context::createBatchContext to create a new offscreen
 OpenGL context for your platform.
 
 Options
 -------
 
-`USE_OS_MESA`: if you set this option to `TRUE`, and you are compiling on
+* `USE_OS_MESA` - if you set this to `TRUE`, and you are compiling on
 Linux, then an OSMesa context will be created for you. This is a software
 rendering context which will allow you to test your rendering algorithms on
 platforms that have little or no graphics support.
