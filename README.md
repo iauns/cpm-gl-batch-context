@@ -1,7 +1,7 @@
 cpm-gl-batch-context
 ====================
 
-[![Build Status](https://travis-ci.org/iauns/cpm-gl-batch-context)](https://travis-ci.org/iauns/cpm-gl-batch-context)
+[![Build Status](https://travis-ci.org/iauns/cpm-gl-batch-context.png)](https://travis-ci.org/iauns/cpm-gl-batch-context)
 
 Module to provide a cross platform OpenGL context for testing rendering
 algorithms. An OSMesa context is provided so that you can test rendering on
