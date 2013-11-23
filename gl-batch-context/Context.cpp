@@ -61,7 +61,7 @@ Context* Context::createBatchContext(uint32_t width, uint32_t height,
   if (GLEW_OK != err)
   {
     Log::error() << "GLEW init failed!" << std::endl;
-    throw GLError("GLEW failed to initialize.");
+    throw NoAvailableContext();
   }
 #endif
 
