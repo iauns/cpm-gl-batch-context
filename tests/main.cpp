@@ -14,5 +14,6 @@ int main(int /*argc*/, char** /*argv*/)
 
   // Now that we are finished, delete the context.
   delete glContext;
+  return 0;
 }
 
