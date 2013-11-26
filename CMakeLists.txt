@@ -120,6 +120,8 @@ file (GLOB Sources
 # Build the library.
 add_library(${CPM_LIB_TARGET_NAME} ${Sources} ${SpecificSources})
 target_link_libraries(${CPM_LIB_TARGET_NAME} 
-  ${OS_SPECIFIC_LIBS} 
+  ${OS_SPECIFIC_LIBS}
+  ${MESA_LIBRARIES}
+  ${OPENGL_LIBRARIES}
   ${CPM_LIBRARIES})
 
