@@ -3,17 +3,7 @@
 #include <iostream>
 
 #include <gl-batch-context/Context.hpp>
-//#include <gl-platform/GLPlatform.hpp>
-
-#define GL_GLEXT_PROTOTYPES
-#include <GL/gl.h>
-#include <GL/glext.h>
-#include <GL/glu.h>
-#include <GL/glx.h>
-
-#define GL(stmt) do {stmt;} while (0)
-#define GL_CHECK()
-
+#include <gl-platform/GLPlatform.hpp>
 
 int main(int /*argc*/, char** /*argv*/)
 {
@@ -61,10 +51,13 @@ int main(int /*argc*/, char** /*argv*/)
   if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
   {
     std::cerr << " *** Unable to generate a complete frame buffer! *** " << std::endl;
+    delete glContext;
+    return 1;
   }
-
-  // Now that we are finished, delete the context.
-  delete glContext;
-  return 0;
+  else
+  {
+    delete glContext;
+    return 0;
+  }
 }
 

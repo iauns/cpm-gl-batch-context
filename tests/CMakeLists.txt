@@ -28,11 +28,11 @@ include(${CPM_DIR}/CPM.cmake)
 
 CPM_AddModule("gl_context" SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
 
-## ++ MODULE: GL Platform
-#CPM_AddModule("gl_platform"
-#  GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform.git"
-#  GIT_TAG "1.0.0"
-#  EXPORT_MODULE TRUE)
+# ++ MODULE: GL Platform
+CPM_AddModule("gl_platform"
+  GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform.git"
+  GIT_TAG "1.0.0"
+  EXPORT_MODULE TRUE)
 
 CPM_Finish()
 
@@ -64,8 +64,5 @@ file(GLOB Sources
 # Setup executable
 
 add_executable(gl_test_batch ${Sources})
-
-target_link_libraries(gl_test_batch 
-  ${CPM_LIBRARIES}
-  )
+target_link_libraries(gl_test_batch ${CPM_LIBRARIES})
 
