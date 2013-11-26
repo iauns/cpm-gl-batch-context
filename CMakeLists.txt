@@ -63,6 +63,7 @@ if (UNIX)
     # Linux specific sources
     option(USE_OS_MESA "Use an OS mesa context." OFF)
     if (USE_OS_MESA)
+      message(STATUS "Using OSMesa software rendering.")
       add_definitions(-DUSE_OS_MESA)
       set(MESA_LIBRARIES "OSMesa32")
       set(OS_SPECIFIC_LIBS ${OS_SPECIFIC_LIBS} ${MESA_LIBRARIES})
@@ -121,7 +122,6 @@ file (GLOB Sources
 add_library(${CPM_LIB_TARGET_NAME} ${Sources} ${SpecificSources})
 target_link_libraries(${CPM_LIB_TARGET_NAME} 
   ${OS_SPECIFIC_LIBS}
-  ${MESA_LIBRARIES}
   ${OPENGL_LIBRARIES}
   ${CPM_LIBRARIES})
 
