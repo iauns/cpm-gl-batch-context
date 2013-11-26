@@ -29,6 +29,7 @@
 #include <stdexcept>
 #include <cassert>
 #include <cstdlib>
+#include <iostream>
 #include "GL/osmesa.h"
 
 #include "OSMesaContext.hpp"
@@ -50,8 +51,11 @@ OSMesaBatchContext::OSMesaBatchContext(uint32_t width, uint32_t height, uint8_t,
                                        bool double_buffer, bool visible) :
   mContext(new MesaContext())
 {
+  std::cout << "Depth: " << uint32_t(depthBits) << std::endl;
+  std::cout << "Stencil: " << uint32_t(stencilBits) << std::endl;
   mContext->ctx = OSMesaCreateContextExt( OSMESA_RGBA, depthBits, stencilBits,
                                           0, NULL );
+  std::cout << "Context: " << mContext->ctx << std::endl;
 
   mContext->frameBuffer = malloc( width * height * 4 * sizeof(GLubyte) );
   if (mContext->frameBuffer == NULL)
@@ -61,14 +65,19 @@ OSMesaBatchContext::OSMesaBatchContext(uint32_t width, uint32_t height, uint8_t,
   mContext->width = width;
   mContext->height = height;
 
+  std::cout << "Framebuffer: " << mContext->frameBuffer << std::endl;
+  std::cout << "Width: " << mContext->width << std::endl;
+  std::cout << "Height: " << mContext->height << std::endl;
+
   this->makeCurrent();
 }
 
 OSMesaBatchContext::~OSMesaBatchContext()
 {
-  free(mContext->frameBuffer);
   OSMesaDestroyContext(mContext->ctx);
+  free(mContext->frameBuffer);
   delete mContext;
+  mContext = NULL;
 }
 
 bool OSMesaBatchContext::isValid() const
@@ -78,9 +87,11 @@ bool OSMesaBatchContext::isValid() const
 
 void OSMesaBatchContext::makeCurrent()
 {
-  if ( !OSMesaMakeCurrent( mContext->ctx, mContext->frameBuffer, GL_UNSIGNED_BYTE,
-                           mContext->width, mContext->height) )
+  if ( OSMesaMakeCurrent( mContext->ctx, mContext->frameBuffer, GL_UNSIGNED_BYTE,
+                          mContext->width, mContext->height) != GL_TRUE )
+  {
     throw std::runtime_error("Unable make context current.");
+  }
 }
 
 void OSMesaBatchContext::swapBuffers()

@@ -65,7 +65,6 @@ if (UNIX)
     if (USE_OS_MESA)
       message(STATUS "Using OSMesa software rendering.")
       add_definitions(-DUSE_OS_MESA)
-      set(OPENGL_LIBRARIES) # Clear out OpenGL libraries.
       set(MESA_LIBRARIES "OSMesa32")
       set(OS_SPECIFIC_LIBS ${OS_SPECIFIC_LIBS} ${MESA_LIBRARIES})
       set (SpecificSources

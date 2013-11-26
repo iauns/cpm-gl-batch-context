@@ -11,4 +11,5 @@ set -e
 pushd ./bin > /dev/null
   cmake -DUSE_OS_MESA=ON ..
   make
+  ./gl_test_batch
 popd
