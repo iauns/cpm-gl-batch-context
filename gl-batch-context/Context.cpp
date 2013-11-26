@@ -37,7 +37,6 @@ Context* Context::createBatchContext(uint32_t width, uint32_t height,
 {
   Context* bctx;
 #if defined(USE_OS_MESA)
-  std::cout << "USING OS MESA!" << std::endl;
   bctx = new OSMesaBatchContext(width, height, color_bits, depth_bits, stencil_bits,
                                 double_buffer, visible);
 #else
