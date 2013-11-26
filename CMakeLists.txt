@@ -67,6 +67,7 @@ if (UNIX)
       add_definitions(-DUSE_OS_MESA)
       set(MESA_LIBRARIES "OSMesa32")
       set(OS_SPECIFIC_LIBS ${OS_SPECIFIC_LIBS} ${MESA_LIBRARIES})
+      set(OPENGL_LIBRARIES) # Remove OpenGL libraries from OSMesa build.
       set (SpecificSources
         gl-batch-context/src/OSMesaContext.cpp
         gl-batch-context/src/OSMesaContext.hpp
