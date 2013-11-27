@@ -25,3 +25,12 @@ Linux, then an OSMesa context will be created for you. This is a software
 rendering context which will allow you to test your rendering algorithms on
 platforms that have little or no graphics support.
 
+OSMesa Context
+--------------
+
+If you are using the OS mesa context, be sure *not* to link against any other
+OpenGL libraries. That means that there should be no reference to
+`OPENGL_LIBRARIES` in any of your CMakeLists.txt files. This module follows
+this convention. But it does add `OPENGL_LIBRARIES` if you do not request an
+OSMesa context.
+
