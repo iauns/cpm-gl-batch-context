@@ -7,8 +7,8 @@ Module to provide a cross platform OpenGL context for testing rendering
 algorithms. An OSMesa context is provided so that you can test rendering on
 platforms that do not have a video card installed such as VMs.
 
-Use
----
+Usage
+-----
 
 ```c++
 #include "gl-batch-context/Context.h"
