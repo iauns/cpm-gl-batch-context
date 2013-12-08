@@ -11,7 +11,7 @@ Usage
 -----
 
 ```c++
-#include "gl-batch-context/Context.h"
+#include <gl-batch-context/Context.h>
 ```
 
 Issue a call to Context::createBatchContext to create a new offscreen
