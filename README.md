@@ -10,12 +10,17 @@ platforms that do not have a video card installed such as VMs.
 Usage
 -----
 
+### Context
+
 ```c++
 #include <gl-batch-context/Context.h>
 ```
 
 Issue a call to Context::createBatchContext to create a new offscreen
 OpenGL context for your platform.
+
+See
+[documentation](http://iauns.github.io/cpm-gl-batch-context/class_c_p_m___g_l___b_a_t_c_h___c_o_n_t_e_x_t___n_s_1_1_context.html).
 
 Options
 -------
