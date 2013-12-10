@@ -12,7 +12,7 @@ script: ./tests/run-tests.sh
 after_success:
 - sudo apt-get --no-install-recommends install doxygen
 - git clone https://github.com/iauns/travis-doxy-helper ./doxy-helper
-- ./doxy-helper/update-doxygen.sh ./.dox ./dox-repo https://github.com/iauns/cpm-arc-ball
+- ./doxy-helper/update-doxygen.sh ./.dox ./dox-repo https://github.com/iauns/cpm-gl-batch-context
 branches:
   only:
   - master
