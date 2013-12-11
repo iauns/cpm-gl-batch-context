@@ -8,6 +8,7 @@
   #include "src/OSMesaContext.hpp"
 #else
   #if defined(GL_CONTEXT_USING_WIN)
+    #include <gl-platform/GLPlatform.hpp>
     #include "src/WGLContext.hpp"
   #elif defined(GL_CONTEXT_USING_LINUX)
     #include "src/GLXContext.hpp"
