@@ -34,12 +34,14 @@
   \brief   Establishes an OpenGL context on windows.
 */
 
-# include <windows.h>
-# include <GL/glew.h>
-# include <GL/wglew.h>
+#include <windows.h>
+#include <GL/glew.h>
+#include <GL/wglew.h>
+
+#include <sstream>
+#include <iostream>
 
 #include "WGLContext.hpp"
-#include <sstream>
 
 namespace CPM_GL_BATCH_CONTEXT_NS {
 
@@ -54,7 +56,7 @@ static void outputLastError()
 {
   DWORD lastError = GetLastError();
   LPVOID msgBuffer;
-  FormatMessageW(
+  FormatMessage(
     FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM |
     FORMAT_MESSAGE_IGNORE_INSERTS,
     NULL,
@@ -165,7 +167,7 @@ WGLContext::WGLContext(uint32_t w, uint32_t h, uint8_t color_bits,
 
   if (double_buffer && !(pfdResult.dwFlags & PFD_DOUBLEBUFFER))
   {
-    WARNING("No double buffer support!");
+    std::cerr << "No double buffer support!";
   }
 
   std::ostringstream ss;
@@ -220,7 +222,7 @@ bool WGLContext::isValid() const
   return true;
 }
 
-bool WGLContext::makeCurrent()
+void WGLContext::makeCurrent()
 {
   if(!wglMakeCurrent(wi->deviceContext, wi->renderingContext)) 
   {
@@ -230,7 +232,7 @@ bool WGLContext::makeCurrent()
   return true;
 }
 
-bool WGLContext::swapBuffers()
+void WGLContext::swapBuffers()
 {
   if(!isValid()) { return false; }
 
