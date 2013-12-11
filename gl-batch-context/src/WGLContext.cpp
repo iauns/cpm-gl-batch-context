@@ -227,21 +227,17 @@ void WGLContext::makeCurrent()
   if(!wglMakeCurrent(wi->deviceContext, wi->renderingContext)) 
   {
     outputLastError();
-    return false;
   }
-  return true;
 }
 
 void WGLContext::swapBuffers()
 {
-  if(!isValid()) { return false; }
+  if(!isValid()) { return; }
 
   if(!SwapBuffers(wi->deviceContext)) 
   {
     outputLastError();
-    return false;
   }
-  return true;
 }
 
 } // namespace CPM_GL_BATCH_CONTEXT_NS
