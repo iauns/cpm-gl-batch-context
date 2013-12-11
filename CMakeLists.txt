@@ -33,6 +33,13 @@ endif()
 # CPM Modules
 #-----------------------------------------------------------------------
 
+if (WIN32)
+  # We need GLEW, and we might as well get the platform headers as well.
+  CPM_AddModule("gl_platform"
+    GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform"
+    GIT_TAG "1.2.0")
+endif()
+
 # This call will ensure all include directories and definitions are present
 # in the target. These correspond to the modules that we added above.
 CPM_InitModule(${CPM_MODULE_NAME})
@@ -81,17 +88,7 @@ if (UNIX)
     add_definitions(-DGL_CONTEXT_USING_LINUX)
   endif ()
 else()
-  # TODO: Windows won't work until we get a glew module that clones
-  #       glew from https://github.com/nigels-com/glew and adds the appropriate
-  #       sources.
   if (WIN32)
-    # Since we are building a static library, we need to define GLEW_STATIC
-    # <url:http://glew.sourceforge.net/install.html#^define the GLEW_STATIC>
-    add_definitions(-DGLEW_STATIC)
-
-    # GLEW include directories and source.
-    include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/3rdParty/glew/include)
-    set(Source_GLEW_for_Windows 3rdParty/glew/src/glew.c)
 
     # Windows specific sources
     set (SpecificSources
