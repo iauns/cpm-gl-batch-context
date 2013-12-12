@@ -31,7 +31,7 @@ CPM_AddModule("gl_context" SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
 # ++ MODULE: GL Platform
 CPM_AddModule("gl_platform"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform.git"
-  GIT_TAG "1.1.0"
+  GIT_TAG "1.2.0"
   EXPORT_MODULE TRUE)
 
 CPM_Finish()
