@@ -14,6 +14,12 @@ find_package(Git)
 if(NOT GIT_FOUND)
   message(FATAL_ERROR "CPM requires Git.")
 endif()
+if ((NOT EXISTS ${CPM_DIR}/CPM.cmake) AND (DEFINED CPM_MODULE_CACHE_DIR))
+  if (EXISTS "${CPM_MODULE_CACHE_DIR}/github_iauns_cpm")
+    message(STATUS "Found cached version of CPM.")
+    file(COPY "${CPM_MODULE_CACHE_DIR}/github_iauns_cpm/" DESTINATION ${CPM_DIR})
+  endif()
+endif()
 if (NOT EXISTS ${CPM_DIR}/CPM.cmake)
   message(STATUS "Cloning repo (https://github.com/iauns/cpm)")
   execute_process(
@@ -31,7 +37,7 @@ CPM_AddModule("gl_context" SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
 # ++ MODULE: GL Platform
 CPM_AddModule("gl_platform"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform.git"
-  GIT_TAG "1.3.0"
+  GIT_TAG "1.3.5"
   USE_EXISTING_VER TRUE
   EXPORT_MODULE TRUE)
 
